@@ -21,4 +21,8 @@ listEl.addEventListener('click', openPicture);
 
 function openPicture(evt) {
   evt.preventDefault();
+  new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+  });
 }
