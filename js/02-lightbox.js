@@ -1,7 +1,7 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
 // Creating markup
+
 const listEl = document.querySelector('.gallery');
 
 const makeMarkup = ({ preview, original, description }) =>
@@ -17,6 +17,7 @@ const galleryMaker = galleryItems.map(makeMarkup).join('');
 listEl.insertAdjacentHTML('afterbegin', galleryMaker);
 
 // Connecting listener
+
 listEl.addEventListener('click', openPicture);
 
 function openPicture(evt) {
