@@ -27,9 +27,6 @@ listEl.addEventListener('click', openPicture);
 function openPicture(evt) {
   evt.preventDefault();
   const clickOnPictupe = evt.target;
-  console.log(clickOnPictupe);
-  console.log(clickOnPictupe.nodeName);
-  console.log(clickOnPictupe.dataset.source);
   if (evt.target.nodeName !== 'IMG') {
     return;
   }

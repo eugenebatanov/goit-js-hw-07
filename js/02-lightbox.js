@@ -18,12 +18,10 @@ listEl.insertAdjacentHTML('afterbegin', galleryMaker);
 
 // Connecting listener
 
-listEl.addEventListener('click', openPicture);
-
-function openPicture(evt) {
-  evt.preventDefault();
+listEl.addEventListener(
+  'click',
   new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
-  });
-}
+  }),
+);
