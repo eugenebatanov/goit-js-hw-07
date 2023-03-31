@@ -27,8 +27,28 @@ listEl.addEventListener('click', openPicture);
 function openPicture(evt) {
   evt.preventDefault();
   const clickOnPictupe = evt.target;
-  if (evt.target.nodeName !== 'IMG') {
+  if (clickOnPictupe.nodeName !== 'IMG') {
     return;
   }
-  basicLightbox.create(`<img src="${clickOnPictupe.dataset.source}">`).show();
+
+  const instance = basicLightbox.create(
+    `<img src="${clickOnPictupe.dataset.source}">`,
+    {
+      closable: false,
+      onShow: instance => {
+        window.addEventListener('keydown', checIfkEscape);
+      },
+      onClose: instance => {
+        window.removeEventListener('keydown', checIfkEscape);
+      },
+    },
+  );
+  instance.show();
+
+  function checIfkEscape(evt) {
+    console.log(evt);
+    if (evt.code === 'Escape') {
+      instance.close();
+    }
+  }
 }
